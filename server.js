@@ -26,7 +26,6 @@ app.post("/convert", upload.single("file"), async (req, res) => {
 
     res.setHeader("Content-Type", "image/png");
     return res.send(page.buffer);
-
   } catch (err) {
     return res.status(500).json({
       error: err.message
@@ -35,6 +34,7 @@ app.post("/convert", upload.single("file"), async (req, res) => {
 });
 
 const port = process.env.PORT || 10000;
+
 app.listen(port, () => {
   console.log("Server running on port " + port);
 });
