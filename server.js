@@ -15,12 +15,13 @@ app.post("/convert", upload.single("file"), async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    const convert = fromBuffer(req.file.buffer, {
-      density: 200,
-      format: "png",
-      width: 1240,
-      height: 1754
-    });
+const convert = fromBuffer(req.file.buffer, {
+  density: 300,
+  format: "png",
+  width: 2480,
+  height: 3508,
+  quality: 100
+});
 
     const page = await convert(1, { responseType: "buffer" });
 
